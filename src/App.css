@@ -34,3 +34,10 @@ button {
   outline: 2px solid #d4af37;
   outline-offset: 2px;
 }
+
+/* Nascondi watermark Emergent */
+a[href*="emergent"],
+a[href*="Emergent"],
+div:has(a[href*="emergent"]) {
+  display: none !important;
+}
