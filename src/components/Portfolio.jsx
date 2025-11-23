@@ -85,7 +85,7 @@ const Portfolio = () => {
 
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-7xl w-full h-[95vh] p-0 gap-0">
+        <DialogContent className="max-w-7xl w-full h-[95vh] p-0 gap-0 overflow-hidden">
           {selectedProject && (
             <div className="flex flex-col h-full">
               {/* Modal Header */}
@@ -104,12 +104,13 @@ const Portfolio = () => {
                 </button>
               </div>
               
-              {/* Modal Content - iframe */}
-              <div className="flex-1 relative bg-white overflow-hidden">
+              {/* Modal Content - iframe con overflow-auto */}
+              <div className="flex-1 bg-white overflow-auto">
                 <iframe
                   src={selectedProject.demoUrl}
                   title={selectedProject.name}
-                  className="w-full h-full border-0"
+                  className="w-full min-h-full border-0"
+                  style={{ height: 'calc(95vh - 60px)' }}
                   loading="lazy"
                   sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                 />
@@ -120,6 +121,9 @@ const Portfolio = () => {
       </Dialog>
     </section>
   );
+};
+
+export default Portfolio;
 };
 
 export default Portfolio;
