@@ -17,7 +17,7 @@ const OfferBanner = () => {
   if (!isVisible || isMobile) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 px-4 border-b border-red-600">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 px-4 shadow-lg">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex-1 text-center text-sm md:text-base font-medium">
           <span className="inline-flex items-center gap-2">
@@ -44,3 +44,4 @@ const OfferBanner = () => {
 };
 
 export default OfferBanner;
+
