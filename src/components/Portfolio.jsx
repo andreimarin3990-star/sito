@@ -89,7 +89,7 @@ const Portfolio = () => {
         <DialogContent className="max-w-7xl w-full h-[95vh] p-0 gap-0">
           {selectedProject && (
             <div className="flex flex-col h-full">
-              {/* Modal Header */}
+              {/* Modal Header - Sticky bar with project name and close button */}
               <div className="flex items-center justify-between px-6 py-3 bg-[#0f172a] text-white border-b border-white/10 shrink-0">
                 <div className="flex items-center gap-3">
                   <h3 className="text-lg font-bold">{selectedProject.name}</h3>
@@ -105,7 +105,7 @@ const Portfolio = () => {
                 </button>
               </div>
               
-              {/* Modal Content - iframe */}
+              {/* Modal Content - iframe fullscreen */}
               <div className="flex-1 relative bg-white overflow-hidden">
                 <iframe
                   src={selectedProject.demoUrl}
@@ -121,9 +121,6 @@ const Portfolio = () => {
       </Dialog>
     </section>
   );
-};
-
-export default Portfolio;
 };
 
 export default Portfolio;
