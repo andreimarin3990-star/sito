@@ -98,27 +98,27 @@ const Header = () => {
 
       {/* Mobile Menu Slide-in */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-64 bg-white z-40 transform transition-transform duration-300 lg:hidden ${
+        className={`fixed top-0 right-0 bottom-0 w-72 sm:w-64 bg-white z-40 transform transition-transform duration-300 lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-8">
-            <span className="text-xl font-bold text-[#0f172a]">Menu</span>
+        <div className="p-6 pt-8">
+          <div className="flex items-center justify-end mb-8">
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-lg hover:bg-gray-100"
+              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              aria-label="Chiudi menu"
             >
               <X size={24} />
             </button>
           </div>
-          <nav className="flex flex-col space-y-4">
+          <nav className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-gray-700 hover:text-[#d4af37] font-medium py-2 transition-colors"
+                className="text-gray-700 hover:text-[#d4af37] font-medium py-3 px-2 transition-colors border-l-2 border-transparent hover:border-[#d4af37]"
               >
                 {link.label}
               </a>
@@ -127,7 +127,7 @@ const Header = () => {
               href="https://wa.me/3883765466?text=Ciao!%20Voglio%20approfittare%20dell%27offerta%20limitata%20e%20richiedere%20la%20bozza%20gratuita"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold text-center mt-4"
+              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold text-center mt-6"
             >
               🔥 Offerta Attiva
             </a>
