@@ -46,7 +46,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="flex items-center relative z-50">
+            <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="flex items-center">
               <span className="text-2xl font-bold bg-gradient-to-r from-[#0f172a] to-[#d4af37] bg-clip-text text-transparent">
                 WebLab
               </span>
@@ -79,7 +79,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors relative z-50"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,11 +98,19 @@ const Header = () => {
 
       {/* Mobile Menu Slide-in */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-64 bg-white z-35 transform transition-transform duration-300 lg:hidden ${
+        className={`fixed top-0 right-0 bottom-0 w-64 bg-white z-40 transform transition-transform duration-300 lg:hidden ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-6 pt-24">
+        <div className="p-6">
+          <div className="flex items-center justify-end mb-8">
+            <button
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="p-2 rounded-lg hover:bg-gray-100"
+            >
+              <X size={24} />
+            </button>
+          </div>
           <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
