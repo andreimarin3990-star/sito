@@ -46,7 +46,7 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="flex items-center">
+            <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="flex items-center z-50">
               <span className="text-2xl font-bold bg-gradient-to-r from-[#0f172a] to-[#d4af37] bg-clip-text text-transparent">
                 WebLab
               </span>
@@ -79,7 +79,7 @@ const Header = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors z-50"
               aria-label="Menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,27 +98,18 @@ const Header = () => {
 
       {/* Mobile Menu Slide-in */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-72 sm:w-64 bg-white z-40 transform transition-transform duration-300 lg:hidden ${
+        className={`fixed top-[72px] right-0 bottom-0 w-64 bg-white z-40 transform transition-transform duration-300 lg:hidden shadow-2xl ${
           isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="p-6 pt-8">
-          <div className="flex items-center justify-end mb-8">
-            <button
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Chiudi menu"
-            >
-              <X size={24} />
-            </button>
-          </div>
-          <nav className="flex flex-col space-y-3">
+        <div className="p-6 h-full overflow-y-auto">
+          <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => scrollToSection(e, link.href)}
-                className="text-gray-700 hover:text-[#d4af37] font-medium py-3 px-2 transition-colors border-l-2 border-transparent hover:border-[#d4af37]"
+                className="text-gray-700 hover:text-[#d4af37] font-medium py-2 transition-colors border-b border-gray-100"
               >
                 {link.label}
               </a>
@@ -127,7 +118,7 @@ const Header = () => {
               href="https://wa.me/3883765466?text=Ciao!%20Voglio%20approfittare%20dell%27offerta%20limitata%20e%20richiedere%20la%20bozza%20gratuita"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold text-center mt-6"
+              className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold text-center mt-4 hover:shadow-lg transition-all"
             >
               🔥 Offerta Attiva
             </a>
