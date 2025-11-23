@@ -85,18 +85,20 @@ const Portfolio = () => {
 
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-7xl w-full h-[95vh] p-0 gap-0 overflow-hidden">
+        <DialogContent className="max-w-[95vw] w-full h-[90vh] p-0 gap-0 fixed top-[5vh] left-[2.5vw]">
           {selectedProject && (
-            <div className="flex flex-col h-full">
-              {/* Modal Header */}
-              <div className="flex items-center justify-between px-6 py-3 bg-[#0f172a] text-white border-b border-white/10 shrink-0">
+            <div className="flex flex-col h-full bg-white rounded-lg overflow-hidden">
+              {/* Modal Header - Sticky */}
+              <div className="flex items-center justify-between px-4 py-3 bg-[#0f172a] text-white border-b border-white/10 shrink-0">
                 <div className="flex items-center gap-3">
-                  <h3 className="text-lg font-bold">{selectedProject.name}</h3>
-                  <span className="text-sm text-gray-400">Demo Live</span>
+                  <h3 className="text-base sm:text-lg font-bold truncate max-w-[200px] sm:max-w-none">
+                    {selectedProject.name}
+                  </h3>
+                  <span className="hidden sm:inline text-sm text-gray-400">Demo Live</span>
                 </div>
                 <button
                   onClick={closeModal}
-                  className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                  className="p-2 hover:bg-white/10 rounded-lg transition-colors flex-shrink-0"
                   aria-label="Chiudi demo"
                   title="Chiudi"
                 >
@@ -104,13 +106,19 @@ const Portfolio = () => {
                 </button>
               </div>
               
-              {/* Modal Content - iframe con overflow-auto */}
-              <div className="flex-1 bg-white overflow-auto">
+              {/* Modal Content - iframe con scroll corretto */}
+              <div className="flex-1 relative bg-white overflow-hidden">
                 <iframe
                   src={selectedProject.demoUrl}
                   title={selectedProject.name}
-                  className="w-full min-h-full border-0"
-                  style={{ height: 'calc(95vh - 60px)' }}
+                  className="w-full h-full border-0"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%'
+                  }}
                   loading="lazy"
                   sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
                 />
@@ -121,9 +129,6 @@ const Portfolio = () => {
       </Dialog>
     </section>
   );
-};
-
-export default Portfolio;
 };
 
 export default Portfolio;
