@@ -86,7 +86,7 @@ const Portfolio = () => {
 
       {/* Modal */}
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-7xl w-full h-[95vh] p-0 gap-0">
+        <DialogContent className="max-w-[96vw] sm:max-w-7xl w-full h-[92vh] sm:h-[95vh] p-0 gap-0 m-2 sm:m-0">
           {selectedProject && (
             <div className="flex flex-col h-full">
               {/* Modal Header - Sticky bar with project name and close button */}
